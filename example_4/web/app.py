@@ -14,7 +14,11 @@ def index():
     for user in r.smembers('users'):
         users.append(user.decode('UTF-8'))
 
-    return render_template('index.html', message="Please register!", users=users)
+    return render_template(
+        'index.html',
+        message="Please register!",
+        users=users,
+        deploy_mode=os.environ['DEPLOY_MODE'])
 
 @app.route('/register', methods=['POST'])
 def register():

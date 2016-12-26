@@ -13,6 +13,7 @@ services:
       - redis:redis
     depends_on:
       - redis
+    env_file: .env
   redis:
     container_name: flaskdemoredis
     restart: always
