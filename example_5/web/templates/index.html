@@ -1,10 +1,12 @@
 <!doctype html>
 <title>Register</title>
 <h1>{{ message }}</h1>
-<form method="POST" action="/register">
-    <label for="name">Name:</label>
-    <input name="user" type="text" required /> 
-    <button type="submit">Add Me</button>
+<form method="POST" action="/categorize">
+    <label for="term">Is a(n):</label>
+    <input name="term" type="text" required /> 
+    <label for="root">of category:</label>
+    <input name="root" type="text" required /> 
+    <button type="submit">Submit</button>
 </form>
 <ul>
   {% for user in users %}

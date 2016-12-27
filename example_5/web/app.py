@@ -20,14 +20,14 @@ def index():
 
     return render_template(
         'index.html',
-        message="Please register!",
+        message='See if a thing is under a category.',
         users=users,
         deploy_mode=os.environ['DEPLOY_MODE'])
 
-@app.route('/register', methods=['POST'])
-def register():
-    user = request.form['user']
-    r.sadd('users', user)
-    print ('adding user: {0}'.format(user))
-    celery.send_task('tasks.get_categories_task', ([user]))
+@app.route('/categorize', methods=['POST'])
+def categorize():
+    term = request.form['term']
+    root = request.form['root']
+    print ('calling task for term: {0}'.format(term))
+    celery.send_task('tasks.is_term_in_category', ([term, root]))
     return redirect(url_for('index'))
