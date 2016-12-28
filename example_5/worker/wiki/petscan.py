@@ -16,7 +16,7 @@ def get_query_url(category, root):
     params = urllib.parse.urlencode({'project': 'wikipedia', 'categories': '\n'.join(wikiCategories)})
     
     url = baseUrl + "&" + params
-    print(url)
+    #print(url)
     return url
 
 def is_category_child_of_root(term, category, root):

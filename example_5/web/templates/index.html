@@ -5,12 +5,12 @@
     <label for="term">Is a(n):</label>
     <input name="term" type="text" required /> 
     <label for="root">of category:</label>
-    <input name="root" type="text" required /> 
+    <input name="root" type="text" required /> ?
     <button type="submit">Submit</button>
 </form>
 <ul>
-  {% for user in users %}
-    <li><span>{{ user }}</span></li>
+  {% for term in terms %}
+    <li><span>A(n) <strong>{{ term.term }}</strong>{% if term.valid %} is {% else %} is not {% endif %}of category <strong>{{ term.root }}</strong></span></li>
   {% endfor %}
 </ul>
 <footer>

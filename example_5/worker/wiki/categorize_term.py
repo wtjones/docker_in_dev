@@ -13,4 +13,4 @@ def categorize_term(term):
         and not x.startswith('Webarchive template wayback links')
         and not 'disestablishments' in x, categories)
     
-    return filtered
+    return list(filtered)
