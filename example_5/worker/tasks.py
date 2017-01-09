@@ -27,7 +27,9 @@ def validate_category_task(lastResult, term, category, index, count, rootCategor
         if result or index == count - 1:            
             r.hset('terms:' + term, 'term', term)
             r.hset('terms:' + term, 'root', rootCategory)
-            r.hset('terms:' + term, 'valid', result) 
+            r.hset('terms:' + term, 'valid', result)
+            print("end of line")
 
         return result
+    print("end of line - lastResut was true")
     return lastResult
